@@ -4,6 +4,12 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('DockerHub')
     }
     stages {
+        stage('Initialize') {
+            stage('Initialize'){
+                    def dockerHome = tool 'Docker'
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
+                }
+        }
         stage('Build') {
             steps {
                 git branch: 'docker-hub-jenkins',
