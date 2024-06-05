@@ -6,7 +6,7 @@ pipeline {
                 git branch: 'docker-hub-jenkins',
                     credentialsId: '71e7fa01-b3cd-4033-9a78-9f48ffeee941',
                     url: 'https://github.com/OmegaNessy/jenkins-training'
-                sh 'docker build -t $env.BUILD_ID'
+                def newApp = docker.build "mycorp/myapp:${env.BUILD_TAG}"
             }
         }
         stage('Push') {
