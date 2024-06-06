@@ -12,9 +12,10 @@ pipeline {
                 git branch: 'docker-hub-jenkins',
                     credentialsId: '71e7fa01-b3cd-4033-9a78-9f48ffeee941',
                     url: 'https://github.com/OmegaNessy/jenkins-training'
-                echo '$IMAGE'
-                echo '${IMAGE}'
-                echo '$(IMAGE)'
+                echo "$IMAGE"
+                echo "${IMAGE}"
+                echo "$(IMAGE)"
+                echo "${IMAGE}"
                 bat 'docker build -t omeganessy/$IMAGE .'
 
             }
