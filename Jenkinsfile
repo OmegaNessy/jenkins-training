@@ -10,7 +10,8 @@ pipeline {
                 git branch: 'docker-hub-jenkins',
                     credentialsId: '71e7fa01-b3cd-4033-9a78-9f48ffeee941',
                     url: 'https://github.com/OmegaNessy/jenkins-training'
-                bat 'docker build -t $DOCKERHUB_USERNAME/jenkinss$BUILD_ID .'
+                bat 'docker build -t omeganessy/jenkinss$BUILD_ID .'
+
             }
         }
         stage('Push') {
