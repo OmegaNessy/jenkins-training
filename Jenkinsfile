@@ -14,7 +14,7 @@ pipeline {
                     url: 'https://github.com/OmegaNessy/jenkins-training'
                 echo "$IMAGE"
                 echo "${IMAGE}"
-                echo "$(IMAGE)"
+//                 echo "$(IMAGE)"
                 echo "${IMAGE}"
                 bat 'docker build -t omeganessy/$IMAGE .'
 
