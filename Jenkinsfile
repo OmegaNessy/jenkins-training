@@ -2,8 +2,8 @@ pipeline {
     agent any
     environment {
         NAME = 'myapp'
-        VERSION = '${env.BUILD_ID}-${env.GIT_COMMIT}'
-        IMAGE = '${NAME}:${VERSION}'
+        VERSION = "${env.BUILD_ID}-${env.GIT_COMMIT}"
+        IMAGE = "${NAME}:${VERSION}"
     }
 
     stages {
@@ -13,9 +13,6 @@ pipeline {
                     credentialsId: '71e7fa01-b3cd-4033-9a78-9f48ffeee941',
                     url: 'https://github.com/OmegaNessy/jenkins-training'
                 echo "$IMAGE"
-                echo "${IMAGE}"
-//                 echo "$(IMAGE)"
-                echo "${IMAGE}"
                 bat 'docker build -t omeganessy/$IMAGE .'
 
             }
