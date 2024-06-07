@@ -20,7 +20,7 @@ pipeline {
                             }
             }
         }
-        stage('Deploy') {
+        stage('Publish') {
             steps{
                 withKubeConfig ([credentialsId: 'k8sConfig'])
                           {
