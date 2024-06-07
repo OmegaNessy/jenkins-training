@@ -17,5 +17,6 @@ spec:
       containers:
         - name: jenkins-training
           image: openjdk:21
+          imagePullPolicy: Never
           ports:
             - containerPort: 80
