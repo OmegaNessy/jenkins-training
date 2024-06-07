@@ -9,9 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                bat "mvn install"
                 bat "docker build -t omeganessy/$IMAGE ."
-
             }
         }
         stage('Push') {
