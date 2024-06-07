@@ -21,5 +21,12 @@ pipeline {
                             }
             }
         }
+        stage('Deploy') {
+            steps{
+                kubernetesDeploy(configs: "k8sManifest.yaml")
+                bat "kubectl set image deployment.apps/jenkins-deployment jenkins-training=omeganessy/$IMAGE"
+
+            }
+        }
     }
 }
