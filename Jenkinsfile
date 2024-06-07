@@ -25,8 +25,8 @@ pipeline {
                 withKubeConfig ([credentialsId: 'k8sConfig'])
                           {
                             bat "kubectl apply -f k8sManifest.yaml"
+                            bat "kubectl set image deployment.apps/jenkins-deployment jenkins-training=omeganessy/$IMAGE"
                           }
-                bat "kubectl set image deployment.apps/jenkins-deployment jenkins-training=omeganessy/$IMAGE"
 
             }
         }
