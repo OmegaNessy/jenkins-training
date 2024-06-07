@@ -27,7 +27,6 @@ pipeline {
                             bat "kubectl apply -f k8sManifest.yaml"
                             bat "kubectl set image deployment.apps/jenkins-deployment jenkins-training=omeganessy/$IMAGE"
                           }
-
             }
         }
     }
