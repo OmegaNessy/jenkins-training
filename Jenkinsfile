@@ -22,7 +22,10 @@ pipeline {
         }
         stage('Deploy') {
             steps{
-                kubernetesDeploy(configs: "k8sManifest.yaml")
+                withKubeConfig ([credentialsId: 'k8sConfig'])
+                          {
+                            bat "kubectl create -f k8sManifest.yml"
+                          }
                 bat "kubectl set image deployment.apps/jenkins-deployment jenkins-training=omeganessy/$IMAGE"
 
             }
